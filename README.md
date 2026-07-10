@@ -8,7 +8,7 @@ $ boo
 $ boo
 $ sudo boo
 [sudo] password for ghost: 
-AHHHH!!!!
+AHHHH!!!
 $
 ```
 

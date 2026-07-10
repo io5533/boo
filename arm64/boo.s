@@ -9,7 +9,7 @@ _start:
 
     mov     x0, #1   // stdout
     adr     x1, msg
-    mov     x2, #10  // Message length
+    mov     x2, #9   // Message length
     mov     x8, #64  // sys_write
     svc     #0
 
@@ -19,4 +19,4 @@ _start:
     svc     #0
 
 msg:
-    .ascii  "AHHHH!!!!\n"
+    .ascii  "AHHHH!!!\n"

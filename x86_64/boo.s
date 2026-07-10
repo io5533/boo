@@ -16,7 +16,7 @@ _start:
     push $1
     pop  %rdi                # fd = stdout
     lea  msg(%rip), %rsi
-    push $10
+    push $9
     pop  %rdx                # message length
     syscall
 
@@ -28,4 +28,4 @@ _start:
     syscall
 
 msg:
-    .ascii "AHHHHH!!!\n"
+    .ascii "AHHHH!!!\n"
