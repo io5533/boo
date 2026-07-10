@@ -2,25 +2,29 @@
 .text
 
 _start:
-    push $107
+    # geteuid()
+    push $107                # SYS_geteuid
     pop  %rax
-    syscall # geteuid()
+    syscall
 
+    # Skip if EUID != 0
     test %eax, %eax
-    jne  1f
-    
-    inc  %eax # eax = 1 (write)
-    # edi = 0 이미 (geteuid 보존 + 프로세스 초기화)
-    # → fd=0(stdin)으로 write, 터미널에선 동일 동작
+    jne 1f
+
+    # write(1, msg, 10)
+    inc  %eax                # SYS_write (0 -> 1)
+    push $1
+    pop  %rdi                # fd = stdout
     lea  msg(%rip), %rsi
     push $10
-    pop  %rdx
+    pop  %rdx                # message length
     syscall
 
 1:
-    push $60
+    # exit(0)
+    push $60                 # SYS_exit
     pop  %rax
-    # edi = 0 이미 → xor 생략 가능
+    xor  %edi, %edi          # status = 0
     syscall
 
 msg:
