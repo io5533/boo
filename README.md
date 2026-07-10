@@ -12,4 +12,4 @@ AHHHH!!!
 $
 ```
 
-This program is tested on x86_64(amd64) Linux, arm64(aarch64) Linux
+This program is tested on x86_64(amd64) Linux, aarch64(arm64) Linux
